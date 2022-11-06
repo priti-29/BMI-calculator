@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        .bmibody {
+            background-color: #cbc8c8;
+            box-shadow: 5px 3px 5px 3px gray;
+
+        }
+
+        img {
+            float: left;
+        }
+
+        .col {
+            font-size: 20px;
+        }
+    </style>
+
+    <script>
+        function calculator() {
+            var genderM = document.getElementById("genderM");
+            var genderF = document.getElementById("genderF");
+            if (genderM.checked) {
+                gender = genderM.value;
+
+            }
+            if (genderF.checked) {
+                gender = genderF.value;
+
+            }
+
+            var age = parseInt(document.getElementById("age").value);
+            var height = parseInt(document.getElementById("height").value);
+            var weight = parseInt(document.getElementById("weight").value);
+            var BMI = weight / (height / 100) ** 2;
+            if (BMI <= 18.4) {
+                document.getElementById("BMIresult").innerHTML=`Your BMI is <font color="green">${BMI.toFixed(1)}</font>.This is considered <font color="#FFE189">UNDERWEIGHT</font> `;
+                
+            }
+            if (BMI >= 18.5 && BMI<=24.9) {
+                document.getElementById("BMIresult").innerHTML=`Your BMI is <font color="green">${BMI.toFixed(1)}</font>.This is considered <font color="green">NORMAL</font> `;
+            }
+            if (BMI >=25.0 && BMI<=39.9) {
+                document.getElementById("BMIresult").innerHTML=`Your BMI is <font color="green">${BMI.toFixed(1)}</font>.This is considered <font color="#FFB54C">OVERWEIGHT</font> `;
+            }
+            if (BMI >=40.0) {
+                document.getElementById("BMIresult").innerHTML=`Your BMI is <font color="green">${BMI.toFixed(1)}</font>.This is considered <font color="red">OBESE</font> `;
+            }
+            
+        }
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div class="bmibody py-4 m-4">
+        <div class="ms-3">
+            <img src="public/images/bmi-logo.png" width="100" hspace="10">
+            <div class="mt-3 text-danger">
+                <h1><b>BMI Calculator</b></h1>
+                <p style="font-size:24px;">Body Mass Index</p>
+            </div>
+        </div>
+        <div class="bg-light d-flex justify-content-around py-4 m-4">
+            <div class="w-75">
+                <div class="row">
+                    <div class="col">
+                        <label><b>GENDER</b></label>
+                        <div>
+                            <input type="radio" name="gender" id="genderF" value="Female" class="form-check-input"><span
+                                class="ms-2 me-4">Female</span>
+                            <input type="radio" name="gender" id="genderM" value="Male" class="form-check-input"><span
+                                class="ms-2 me-4">Male</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label><b>AGE</b></label>
+                        <div>
+                            <input type="number" id="age" min="2" max="120" class="form-control me-2 w-50" placeholder="year"><i
+                                style="font-size:12px; font-weight: bold; color:gray">between 2 yrs to 120 yrs</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col">
+                        <label><b>HEIGHT</b></label>
+                        <div>
+                            <input type="number" id="height" class="form-control me-2 w-50" placeholder="in cm">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label><b>WEIGHT</b></label>
+                        <div>
+                            <input type="number" id="weight" class="form-control me-2 w-50" placeholder="in Kgs">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col ms-4">
+                        <button onclick="calculator()"
+                            class="btn btn-secondary btn-lg rounded rounded-4">Calculate</button>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <h3 id="BMIresult"></h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
+</html>
